@@ -52,9 +52,10 @@
                     <field name="type">tree</field>
                     <field name="arch" type="xml">
                         <tree string="sesion vista">
-                            <field name="name" />
-                            <field name="edad" />
-                            <field name="direccion" />
+                            <field name="empleado" />
+                            <field name="hora_entrada" />
+                            <field name="hora_salida" />
+                            <field name="fecha" />
                         </tree>
                     </field>
                 </record>
@@ -69,11 +70,10 @@
                      <form string="sesion form">
                         <sheet>
                             <group>
-                                <field name="name" class="texto" />
-                                <field name="edad" />
-                                <field name="hora" />
-                                <field name="cargo" />
-                                <field name="direccion" />
+                                <field name="empleado" />
+                                <field name="hora_entrada" />
+                                <field name="hora_salida" />
+                                <field name="fecha" />
                             </group>
                         </sheet>
                       </form>
@@ -85,7 +85,7 @@
                 <menuitem id="sesion_empleados_menu" name="Sesion de Empleados" parent="main__menu"/>
         
                 <!-- Definimos otro menu que tiene como menu padre a Curso academicos.-->
-                <menuitem id="sesiones_empleados_menu" name="Sesion Empleados" parent="sesion_empleados_menu" action="sesion_list_action"/>
+                <menuitem id="sesiones_empleados_menu" name="Empleados" parent="sesion_empleados_menu" action="sesion_list_action"/>
                 
         <!--
                 <menuitem id="_menu" name="" parent="main__menu"  />

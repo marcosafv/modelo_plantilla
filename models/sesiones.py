@@ -16,9 +16,7 @@ from openerp import models, fields, api
 
 class sesiones_usuarios(models.Model):
 	_name = 'sesiones.usuarios'
-	name = fields.Char(string="Usuarios", required=True)
-	edad = fields.Integer()
-	hora = fields.Integer()
-	cargo = fields.Char("Cargo", required=True)
-	direccion = fields.Char("Direccion", required=True)
-	descripcion = fields.Text()
+	empleado = fields.Many2one('usuarios.iniciar','Usuarios', required=True, help='Ingrese un usuario')
+	hora_entrada = fields.Integer()
+	hora_salida = fields.Integer()
+	fecha = fields.Date()
