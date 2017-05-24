@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- <template id="listing"> -->
+        <!--   <ul> -->
+        <!--     <li t-foreach="objects" t-as="object"> -->
+        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
+        <!--         <t t-esc="object.display_name"/> -->
+        <!--       </a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </template> -->
+        <!-- <template id="object"> -->
+        <!--   <h1><t t-esc="object.display_name"/></h1> -->
+        <!--   <dl> -->
+        <!--     <t t-foreach="object._fields" t-as="field"> -->
+        <!--       <dt><t t-esc="field"/></dt> -->
+        <!--       <dd><t t-esc="object[field]"/></dd> -->
+        <!--     </t> -->
+        <!--   </dl> -->
+        <!-- </template> -->
+
+        
+         
+                <record model="ir.actions.act_window" id="usuarios_list_action">
+                    <field name="name">usuarios</field>
+                    <field name="res_model">usuarios.iniciar</field>
+                    <field name="view_type">form</field>
+                    <field name="view_mode">tree,form</field> 
+                    <field name="help" type="html">
+                        <p class="oe_view_nocontent_create">Usuarios de la empresa</p>
+                    </field>
+                </record>
+        
+                <!-- actions -->
+        
+                <!--<record model="ir.actions.act_window" id="notes_list_action">
+                    <field name="name"></field>
+                    <field name="res_model"></field>
+                    <field name="view_type">form</field>
+                    <field name="view_mode">tree,form</field>
+                    <field name="help" type="html">
+                        <p class="oe_view_nocontent_create"></p>
+                    </field>
+                </record>-->
+        
+                <!-- Vista -->
+        
+                <record model="ir.ui.view" id="usuarios_tree_view">
+                    <field name="name">usuarios.tree</field>
+                    <field name="model">usuarios.iniciar</field>
+                    <field name="type">tree</field>
+                    <field name="arch" type="xml">
+                        <tree string="">
+                            <field name="name" />
+                            <field name="edad" />
+                            <field name="direccion" />
+                        </tree>
+                    </field>
+                </record>
+        
+                <!-- Formularios -->
+        
+                <record model="ir.ui.view" id="usuarios_form_view">
+                    <field name="name">usuarios.form</field>
+                    <field name="model">usuarios.iniciar</field>
+                    <field name="type">form</field>
+                    <field name="arch" type="xml">
+                     <form string="">
+                        <sheet>
+                            <style>
+                                .texto
+                                    {
+                                        color: red;
+                                    }
+                            </style>
+                            <group>
+                                <field name="name" class="texto" />
+                                <field name="edad" />
+                                <field name="cargo" />
+                                <field name="direccion" />
+                            </group>
+                        </sheet>
+                      </form>
+                    </field>
+                </record>
+         
+                <!-- menu superior o principal: no hereda de otro menu -->
+                <menuitem id="main__menu" name="Usuarios"/>
+         
+                <!-- Definimos un menu de solo vista, este menu tiene como menu padre a Cursos -->
+                <menuitem id="list_empleados_menu" name="Lista de Empleados" parent="main__menu"/>
+        
+                <!-- Definimos otro menu que tiene como menu padre a Curso academicos.-->
+                <menuitem id="empleados_menu" name="Empleados" parent="list_empleados_menu" action="usuarios_list_action"/>
+                
+        <!--
+                <menuitem id="_menu" name="" parent="main__menu"  />
+                <menuitem id="notas_menu" name="" parent="_menu" action="_list_action" />-->
+
+    </data>
+</openerp>
