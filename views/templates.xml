@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <openerp>
     <data>
         <!-- <template id="listing"> -->
@@ -69,10 +70,7 @@
                      <form string="">
                         <sheet>
                             <style>
-                                .texto
-                                    {
-                                        color: red;
-                                    }
+                                color: blue;
                             </style>
                             <group>
                                 <field name="name" class="texto" />
