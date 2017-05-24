@@ -22,13 +22,13 @@
 
         
          
-                <record model="ir.actions.act_window" id="usuarios_list_action">
-                    <field name="name">usuarios</field>
-                    <field name="res_model">usuarios.iniciar</field>
+                <record model="ir.actions.act_window" id="sesion_list_action">
+                    <field name="name">sesiones</field>
+                    <field name="res_model">sesiones.usuarios</field>
                     <field name="view_type">form</field>
                     <field name="view_mode">tree,form</field> 
                     <field name="help" type="html">
-                        <p class="oe_view_nocontent_create">Usuarios de la empresa</p>
+                        <p class="oe_view_nocontent_create">Sesiones de usuarios</p>
                     </field>
                 </record>
         
@@ -46,12 +46,12 @@
         
                 <!-- Vista -->
         
-                <record model="ir.ui.view" id="usuarios_tree_view">
-                    <field name="name">usuarios.tree</field>
-                    <field name="model">usuarios.iniciar</field>
+                <record model="ir.ui.view" id="sesion_tree_view">
+                    <field name="name">sesion.tree</field>
+                    <field name="model">sesiones.usuarios</field>
                     <field name="type">tree</field>
                     <field name="arch" type="xml">
-                        <tree string="">
+                        <tree string="sesion vista">
                             <field name="name" />
                             <field name="edad" />
                             <field name="direccion" />
@@ -61,16 +61,17 @@
         
                 <!-- Formularios -->
         
-                <record model="ir.ui.view" id="usuarios_form_view">
-                    <field name="name">usuarios.form</field>
-                    <field name="model">usuarios.iniciar</field>
+                <record model="ir.ui.view" id="sesion_form_view">
+                    <field name="name">sesiones.form</field>
+                    <field name="model">sesiones.usuarios</field>
                     <field name="type">form</field>
                     <field name="arch" type="xml">
-                     <form string="">
+                     <form string="sesion form">
                         <sheet>
                             <group>
                                 <field name="name" class="texto" />
                                 <field name="edad" />
+                                <field name="hora" />
                                 <field name="cargo" />
                                 <field name="direccion" />
                             </group>
@@ -79,14 +80,12 @@
                     </field>
                 </record>
          
-                <!-- menu superior o principal: no hereda de otro menu -->
-                <menuitem id="main__menu" name="Usuarios"/>
-         
+                
                 <!-- Definimos un menu de solo vista, este menu tiene como menu padre a Cursos -->
-                <menuitem id="list_empleados_menu" name="Lista de Empleados" parent="main__menu"/>
+                <menuitem id="sesion_empleados_menu" name="Sesion de Empleados" parent="main__menu"/>
         
                 <!-- Definimos otro menu que tiene como menu padre a Curso academicos.-->
-                <menuitem id="empleados_menu" name="Empleados" parent="list_empleados_menu" action="usuarios_list_action"/>
+                <menuitem id="sesiones_empleados_menu" name="Sesion Empleados" parent="sesion_empleados_menu" action="sesion_list_action"/>
                 
         <!--
                 <menuitem id="_menu" name="" parent="main__menu"  />
