@@ -16,8 +16,9 @@ from openerp import models, fields, api
 
 class usuarios_login(models.Model):
 	_name = 'usuarios.iniciar'
-	name = fields.Char(string="Usuarios", required=True)
+	name = fields.Char('Usuarios', required=True)
 	edad = fields.Integer()
+	empresa = fields.Many2one('res.partner', 'Empresa', required=True)
 	cargo = fields.Char("Cargo", required=True)
 	direccion = fields.Char("Direccion", required=True)
 	descripcion = fields.Text()
