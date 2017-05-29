@@ -16,7 +16,7 @@ from openerp import models, fields, api
 
 class sesiones_usuarios(models.Model):
 	_name = 'sesiones.usuarios'
-	empleado = fields.Char('Empleado', required=True)
+	empleado = fields.Many2one('usuarios.iniciar','Empleado', required=True)
 	hora_entrada = fields.Integer()
 	hora_salida = fields.Integer()
 	fecha = fields.Date()

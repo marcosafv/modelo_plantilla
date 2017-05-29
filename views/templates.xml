@@ -55,6 +55,7 @@
                             <field name="name" />
                             <field name="edad" />
                             <field name="direccion" />
+                            <field name="sesiones_id" />
                         </tree>
                     </field>
                 </record>
@@ -73,6 +74,7 @@
                                 <field name="edad" />
                                 <field name="cargo" />
                                 <field name="direccion" />
+                                <field name="sesiones_id" />
                             </group>
                         </sheet>
                       </form>

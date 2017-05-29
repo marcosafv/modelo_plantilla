@@ -16,10 +16,11 @@ from openerp import models, fields, api
 
 class usuarios_login(models.Model):
 	_name = 'usuarios.iniciar'
-	name = fields.One2many('sesiones.usuarios', 'empleado', 'Usuarios', required=True)
+	name = fields.Char('Usuario', required=True)
 	edad = fields.Integer()
 	cargo = fields.Char("Cargo", required=True)
 	direccion = fields.Char("Direccion", required=True)
+	sesiones_id = fields.One2many('sesiones.usuarios', 'empleado', 'Sesion')
 	descripcion = fields.Text()
 	
 	""""class notas_curso(models.Model):
