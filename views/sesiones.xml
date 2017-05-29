@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- <template id="listing"> -->
+        <!--   <ul> -->
+        <!--     <li t-foreach="objects" t-as="object"> -->
+        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
+        <!--         <t t-esc="object.display_name"/> -->
+        <!--       </a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </template> -->
+        <!-- <template id="object"> -->
+        <!--   <h1><t t-esc="object.display_name"/></h1> -->
+        <!--   <dl> -->
+        <!--     <t t-foreach="object._fields" t-as="field"> -->
+        <!--       <dt><t t-esc="field"/></dt> -->
+        <!--       <dd><t t-esc="object[field]"/></dd> -->
+        <!--     </t> -->
+        <!--   </dl> -->
+        <!-- </template> -->
+
+        
+         
+                <record model="ir.actions.act_window" id="sesion_list_action">
+                    <field name="name">sesiones</field>
+                    <field name="res_model">sesiones.usuarios</field>
+                    <field name="view_type">form</field>
+                    <field name="view_mode">tree,form,graph</field> 
+                    <field name="help" type="html">
+                        <p class="oe_view_nocontent_create">Sesiones de usuarios</p>
+                    </field>
+                </record>
+        
+                <!-- actions -->
+        
+                <!--<record model="ir.actions.act_window" id="notes_list_action">
+                    <field name="name"></field>
+                    <field name="res_model"></field>
+                    <field name="view_type">form</field>
+                    <field name="view_mode">tree,form</field>
+                    <field name="help" type="html">
+                        <p class="oe_view_nocontent_create"></p>
+                    </field>
+                </record>-->
+        
+                <!-- Vista -->
+        
+                <record model="ir.ui.view" id="sesion_tree_view">
+                    <field name="name">sesion.tree</field>
+                    <field name="model">sesiones.usuarios</field>
+                    <field name="type">tree</field>
+                    <field name="arch" type="xml">
+                        <tree string="sesion vista">
+                            <field name="empleado" />
+                            <field name="hora_entrada" />
+                            <field name="hora_salida" />
+                            <field name="fecha" />
+                        </tree>
+                    </field>
+                </record>
+        
+                <!-- Formularios -->
+        
+                <record model="ir.ui.view" id="sesion_form_view">
+                    <field name="name">sesiones.form</field>
+                    <field name="model">sesiones.usuarios</field>
+                    <field name="type">form</field>
+                    <field name="arch" type="xml">
+                     <form string="sesion form">
+                        <sheet>
+                            <group>
+                                <field name="empleado" />
+                                <field name="hora_entrada" />
+                                <field name="hora_salida" />
+                                <field name="fecha" />
+                            </group>
+                        </sheet>
+                      </form>
+                    </field>
+                </record>
+
+                <record id="sesion_graph_view" model="ir.ui.view">
+                    <field name="name">sesion.graph</field>
+                    <field name="model">sesiones.usuarios</field>
+                    <field name="arch" type="xml">
+                        <graph type="pivot">
+                            <field name="empleado" type="col" />
+                            <field name="hora_entrada" interval="week" />
+                            <field name="hora_salida" interval="week" />
+                            <field name="fecha" type="measure" />
+                        </graph>
+                    </field>
+                </record>
+
+         
+                
+                <!-- Definimos un menu de solo vista, este menu tiene como menu padre a Cursos -->
+                <menuitem id="sesion_empleados_menu" name="Sesion de Empleados" parent="main__menu"/>
+        
+                <!-- Definimos otro menu que tiene como menu padre a Curso academicos.-->
+                <menuitem id="sesiones_empleados_menu" name="Empleados" parent="sesion_empleados_menu" action="sesion_list_action"/>
+                
+        <!--
+                <menuitem id="_menu" name="" parent="main__menu"  />
+                <menuitem id="notas_menu" name="" parent="_menu" action="_list_action" />-->
+
+    </data>
+</openerp>
