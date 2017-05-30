@@ -22,3 +22,8 @@ class sesiones_usuarios(models.Model):
 	cargo = fields.Char("Cargo", required=True)
 	direccion = fields.Char("Direccion", required=True)
 	descripcion = fields.Text()
+
+class partner(models.Model):
+	_inherit = 'res.partner'
+	company_type = fields.Char('agregando', required=True)
+	

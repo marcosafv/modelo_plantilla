@@ -31,6 +31,16 @@
                         <p class="oe_view_nocontent_create">Sesiones de usuarios</p>
                     </field>
                 </record>
+
+                <record model="ir.actions.act_window" id="partner_list_action">
+                    <field name="name">partners</field>
+                    <field name="res_model">res.partner</field>
+                    <field name="view_type">form</field>
+                    <field name="view_mode">tree,form</field> 
+                    <field name="help" type="html">
+                        <p class="oe_view_nocontent_create">Lista de Partners</p>
+                    </field>
+                </record>
         
                 <!-- actions -->
         
@@ -79,6 +89,21 @@
                       </form>
                     </field>
                 </record>
+
+                <record model="ir.ui.view" id="partner_form_view">
+                    <field name="name">partners.form</field>
+                    <field name="model">res.partner</field>
+                    <field name="type">form</field>
+                    <field name="arch" type="xml">
+                     <form string="partner form">
+                        <sheet>
+                            <group>
+                                <field name="company_type" class="texto" />
+                            </group>
+                        </sheet>
+                      </form>
+                    </field>
+                </record>
          
                 
                 <!-- Definimos un menu de solo vista, este menu tiene como menu padre a Cursos -->
@@ -87,9 +112,9 @@
                 <!-- Definimos otro menu que tiene como menu padre a Curso academicos.-->
                 <menuitem id="sesiones_empleados_menu" name="Sesion Empleados" parent="sesion_empleados_menu" action="sesion_list_action"/>
                 
-        <!--
-                <menuitem id="_menu" name="" parent="main__menu"  />
-                <menuitem id="notas_menu" name="" parent="_menu" action="_list_action" />-->
+    
+                <menuitem id="partner_menu" name="Partners" parent="main__menu"  />
+               <menuitem id="agregar_partner_menu" name="Agregar Partner" parent="partner_menu" action="partner_list_action" />
 
     </data>
 </openerp>
