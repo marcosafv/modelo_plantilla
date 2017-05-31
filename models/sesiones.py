@@ -14,17 +14,16 @@ from openerp import models, fields, api
 #     def _value_pc(self):
 #         self.value2 = float(self.value) / 100
 
-class usuarios_login(models.Model):
-	_name = 'usuarios.iniciar'
-	name = fields.Char('Usuarios', required=True)
+class sesiones_usuarios(models.Model):
+	_name = 'sesiones.usuarios'
+	name = fields.Char(string="Usuarios", required=True)
 	edad = fields.Integer()
-	empresa = fields.Many2one('res.partner', 'Empresa', required=True)
+	hora = fields.Integer()
 	cargo = fields.Char("Cargo", required=True)
 	direccion = fields.Char("Direccion", required=True)
 	descripcion = fields.Text()
+
+class partner(models.Model):
+	_inherit = 'res.partner'
+	company_type = fields.Char('agregando', required=True)
 	
-	""""class notas_curso(models.Model):
-	    _name = 'notas.curso'
-	    name = fields.Char(string="Nombre", required=True)
-	    direccion = fields.Char('Direccion', size=100, required=True)
-	    descripcion = fields.Text()	"""
